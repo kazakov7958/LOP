@@ -1,0 +1,6 @@
+[
+{'id': 1, "name": "Алексей", "group": "ИУ 10-33", "schoolarship": 1000, "is_active": true},
+{'id': 2, "name": "Мария", "group": "ИУ 10-35", "schoolarship": 2000, "is_active": true},
+{'id': 3, "name": "Дмитрий", "group": "ИУ 10-33", "schoolarship": null, "is_active": false},
+{'id': 4, "name": "Елена", "group": "ИУ 10-36", "schoolarship": 5000, "is_active": true}
+]

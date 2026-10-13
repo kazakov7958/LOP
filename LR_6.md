@@ -110,3 +110,14 @@ data=[("Фамилия_1", 5, 2)("Фамилия_2",4,9)("Фамилия_3", 80,
 2. Согласованность
 3. Изолированность
 4. Долговечность
+
+***Ещё  кусочек примера***
+```python
+cursor.execute("SELECT id, name FROM students WHERE age > 18")
+rows = cursor.fetchall()
+users = []
+for row in rows:
+	users.append(row[1])
+
+print(users)
+```

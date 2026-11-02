@@ -2,7 +2,7 @@ import json
 import sqlite3
 
 with open("catalog.json", "r", encoding="utf-8") as file:
-    items = json.load(file)
+    itms = json.load(file)
 
 conn = sqlite3.connect("database.db")
 conn.execute("PRAGMA foreign_keys = ON")
@@ -28,23 +28,23 @@ cursor.execute("""
 cursor.execute("DELETE FROM product")
 cursor.execute("DELETE FROM category")
 
-category_ids = {}
+category_id = {}
 
-for item in items:
-    cat = item["category"]
-    cat_name = cat["name"]
+for itm in itms:
+    categ = itm["category"]
+    categ_name = categ["name"]
 
-    if cat_name not in category_ids:
+    if categ_name not in category_id:
         cursor.execute(
             "INSERT INTO category (name, description) VALUES (?, ?)",
-            (cat_name, cat["description"]),
+            (categ_name, categ["description"]),
         )
-        category_ids[cat_name] = cursor.lastrowid
+        category_id[categ_name] = cursor.lastrowid
 
     cursor.execute(
         "INSERT INTO product (product_name, price, category_id) VALUES (?, ?, ?)",
-        (item["product_name"], item["price"], category_ids[cat_name]),
+        (itm["product_name"], itm["price"], category_id[categ_name]),
     )
 
 conn.commit()
-conn.close()
+conn.close()    

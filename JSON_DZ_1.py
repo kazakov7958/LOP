@@ -1,7 +1,7 @@
 import json
 with open("users.json", encoding="utf-8") as f:
     users = json.load(f)
-
+users = 100000 * users
 group = {}
 for user in users:
     user_group = user["address"]["city"]
